@@ -16,18 +16,6 @@
  * Includes snippets of code provided by the instructor, Glenn Downing
  */
 
-/*
-To test the program:
-    % ls /usr/include/cppunit/
-    ...
-    TestFixture.h
-    ...
-    % locate libcppunit.a
-    /usr/lib/libcppunit.a
-    % g++ -pedantic -std=c++0x -Wall Collatz.c++ TestCollatz.c++ -o TestCollatz -lcppunit -ldl
-    % valgrind TestCollatz >& TestCollatz.out
-*/
-
 // --------
 // includes
 // --------
@@ -83,6 +71,15 @@ struct TestPFD : CppUnit::TestFixture {
         const bool result = read_one_line(values, pfd_in);
         CPPUNIT_ASSERT(result == false);}
 
+    void test_read_one_line_5 () {
+        std::istringstream pfd_in("7 4\n3 7 6\n");
+        std::vector<int> values;
+        const bool result = read_one_line(values, pfd_in);
+        CPPUNIT_ASSERT(result == true);
+	CPPUNIT_ASSERT(values.size() == 2);
+        CPPUNIT_ASSERT(values[0] == 7);
+        CPPUNIT_ASSERT(values[1] == 4);}
+
 
     // -----
     // output_coll
@@ -122,19 +119,33 @@ struct TestPFD : CppUnit::TestFixture {
         std::istringstream r("5 4\n3 2 1 5\n2 2 5 3\n4 1 3\n5 1 1\n");
         std::ostringstream w;
         solve_pfd(r, w);
-        CPPUNIT_ASSERT(w.str() == "1 10 20\n100 200 125\n201 210 89\n900 1000 174\n");}
+        CPPUNIT_ASSERT(w.str() == "1 5 3 2 4\n");}
 
     void test_solve_pfd_2 () {
-        std::istringstream r("5 4\n3 2 1 5\n2 2 5 3\n4 1 3\n5 1 1\n");
+        std::istringstream r("3 1\n 1 1 3\n");
         std::ostringstream w;
         solve_pfd(r, w);
-        CPPUNIT_ASSERT(w.str() == "27 27 112\n6 6 9\n");}
+        CPPUNIT_ASSERT(w.str() == "2 3 1\n");}
     
     void test_solve_pfd_3 () {
-        std::istringstream r("1 0\n4 0");
+        std::istringstream r("3 1\n2 1 3\n");
         std::ostringstream w;
         solve_pfd(r, w);
-        CPPUNIT_ASSERT(w.str() == "4\n");}
+        CPPUNIT_ASSERT(w.str() == "1 3 2\n");}
+
+   void test_solve_pfd_4 () {
+        std::istringstream r("2 1\n2 1 1\n");
+        std::ostringstream w;
+        solve_pfd(r, w);
+	std::cout << std::endl;
+        CPPUNIT_ASSERT(w.str() == "1 2\n");}
+
+   void test_solve_pfd_5 () {
+        std::istringstream r("1 0\n");
+        std::ostringstream w;
+        solve_pfd(r, w);
+	std::cout << std::endl;
+        CPPUNIT_ASSERT(w.str() == "1\n");}
         
     // -----
     // suite
@@ -145,13 +156,16 @@ struct TestPFD : CppUnit::TestFixture {
     CPPUNIT_TEST(test_read_one_line_2);
     CPPUNIT_TEST(test_read_one_line_3);
     CPPUNIT_TEST(test_read_one_line_4);
+    CPPUNIT_TEST(test_read_one_line_5);
     CPPUNIT_TEST(test_output_coll_1);
     CPPUNIT_TEST(test_output_coll_2);
     CPPUNIT_TEST(test_output_coll_3);
-    CPPUNIT_TEST(test_output_coll_4);
+    //CPPUNIT_TEST(test_output_coll_4);
     CPPUNIT_TEST(test_solve_pfd_1);
     CPPUNIT_TEST(test_solve_pfd_2);
     CPPUNIT_TEST(test_solve_pfd_3);
+    CPPUNIT_TEST(test_solve_pfd_4);
+    CPPUNIT_TEST(test_solve_pfd_5);
     CPPUNIT_TEST_SUITE_END();};
 
 // ----
