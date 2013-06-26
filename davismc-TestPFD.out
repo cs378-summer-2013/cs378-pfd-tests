@@ -1,60 +1,10 @@
 TestPFD.c++
-.F.F.F..F.F.F.F.F.F.F
+............
+.
 
 
-!!!FAILURES!!!
-Test Results:
-Run:  11   Failures: 10   Errors: 0
 
-
-1) test: TestPFD::test_read_one_line_1 (F) line: 59 TestPFD.c++
-assertion failed
-- Expression: result == true
-
-
-2) test: TestPFD::test_read_one_line_2 (F) line: 67 TestPFD.c++
-assertion failed
-- Expression: result == true
-
-
-3) test: TestPFD::test_read_one_line_3 (F) line: 77 TestPFD.c++
-assertion failed
-- Expression: result == true
-
-
-4) test: TestPFD::test_output_coll_1 (F) line: 95 TestPFD.c++
-assertion failed
-- Expression: pfd_out.str() == "3 7 9 12 15\n"
-
-
-5) test: TestPFD::test_output_coll_2 (F) line: 101 TestPFD.c++
-assertion failed
-- Expression: pfd_out.str() == "0\n"
-
-
-6) test: TestPFD::test_output_coll_3 (F) line: 108 TestPFD.c++
-assertion failed
-- Expression: pfd_out.str() == "12345678 -1\n"
-
-
-7) test: TestPFD::test_output_coll_4 (F) line: 114 TestPFD.c++
-assertion failed
-- Expression: pfd_out.str() == "\n"
-
-
-8) test: TestPFD::test_solve_pfd_1 (F) line: 125 TestPFD.c++
-assertion failed
-- Expression: w.str() == "1 10 20\n100 200 125\n201 210 89\n900 1000 174\n"
-
-
-9) test: TestPFD::test_solve_pfd_2 (F) line: 131 TestPFD.c++
-assertion failed
-- Expression: w.str() == "27 27 112\n6 6 9\n"
-
-
-10) test: TestPFD::test_solve_pfd_3 (F) line: 137 TestPFD.c++
-assertion failed
-- Expression: w.str() == "4\n"
+OK (13 tests)
 
 
 Done.
