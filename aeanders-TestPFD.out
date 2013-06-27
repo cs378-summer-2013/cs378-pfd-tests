@@ -1,0 +1,29 @@
+==28565== Memcheck, a memory error detector
+==28565== Copyright (C) 2002-2011, and GNU GPL'd, by Julian Seward et al.
+==28565== Using Valgrind-3.7.0 and LibVEX; rerun with -h for copyright info
+==28565== Command: TestPFD
+==28565== 
+TestPFD.c++
+..................
+
+
+OK (18 tests)
+
+
+Done.
+==28565== 
+==28565== HEAP SUMMARY:
+==28565==     in use at exit: 122,880 bytes in 6 blocks
+==28565==   total heap usage: 835 allocs, 829 frees, 216,706 bytes allocated
+==28565== 
+==28565== LEAK SUMMARY:
+==28565==    definitely lost: 0 bytes in 0 blocks
+==28565==    indirectly lost: 0 bytes in 0 blocks
+==28565==      possibly lost: 0 bytes in 0 blocks
+==28565==    still reachable: 122,880 bytes in 6 blocks
+==28565==         suppressed: 0 bytes in 0 blocks
+==28565== Rerun with --leak-check=full to see details of leaked memory
+==28565== 
+==28565== For counts of detected and suppressed errors, rerun with: -v
+==28565== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 2 from 2)
+
